@@ -2,8 +2,9 @@
 - name: Sample play
   hosts: localhost
   vars:
-    name: "whatever"
+    name: whatever
   tasks:
- 
-  - name: Sample
-    shell: echo "{{ name }}"
+    - name: Sample
+      shell: echo "{{ name }}"
+      register: _name
+    - debug: var=_name.stdout
